@@ -1,3 +1,4 @@
+# import libraries
 import os
 import re
 from collections import defaultdict
@@ -20,7 +21,7 @@ pref = []
 sorted_grouped = []
 
 
-# search through the list of files, create two variables, the prefix and the numbers+extension
+# search through the list of files, create two variables, the prefix, and the numbers+extension
 def search(lst):
   for f in lst:
     regexpref = re.search(r'^\w{4}', f)
@@ -39,18 +40,18 @@ def search(lst):
 # sort the list into sublists based on the prefix
 def make_unique(lst):
   sorted_grouped = []
-  endstring = "KyraMovva"
+  endstring = "yraMovva"
   for file in lst:
     d[file[0]].append(file)
     sorted_grouped = list(d.values())
   for i in sorted_grouped:
      i.sort(key=lambda j: j[1])
-  # number each of the items in the sublists and use that to determine the length of the string that comes before "_KYRA"
+  # number each of the items in the sublists and use that to determine the how many characters of "yraMovva" that comes before "_KYRA"
   new_group = enumerate(sorted_grouped)
   renamed = []
   for item in new_group:
     item = list(item)
-    str_for_end = endstring[:item[0]+1]
+    str_for_end = endstring[:item[0]]
     # format each name to include a new prefix and the correct suffix
     for x in item[1]:
       str = f"PWP2024_000{x[1]}{str_for_end}_KYRA.{x[2]}"
