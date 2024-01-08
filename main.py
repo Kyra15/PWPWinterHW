@@ -40,7 +40,7 @@ def search(lst):
 # sort the list into sublists based on the prefix
 def make_unique(lst):
   sorted_grouped = []
-  endstring = "yraMovva"
+  endstring = "KyraMovva"
   for file in lst:
     d[file[0]].append(file)
     sorted_grouped = list(d.values())
@@ -51,7 +51,7 @@ def make_unique(lst):
   renamed = []
   for item in new_group:
     item = list(item)
-    str_for_end = endstring[:item[0]]
+    str_for_end = endstring[:item[0]+1]
     # format each name to include a new prefix and the correct suffix
     for x in item[1]:
       str = f"PWP2024_000{x[1]}{str_for_end}_KYRA.{x[2]}"
